@@ -1,0 +1,45 @@
+secrets:
+  db_connect:
+    file: ./connectionstring.txt
+services:
+  app:
+    container_name: node-api
+    restart: always
+    image: node-api
+    ports:
+      - '5001:5001'
+    networks:
+      - app_network
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    environment:
+      CONNECTION_STRING: db_connect
+    networks:
+      - mongo_network
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    image: redis
+    container_name: redis-cache
+    ports:
+      - "6379:6379"
+    networks:
+      - redis_network
+    volumes:
+      - redis-data:/data
+      
+networks:
+  app_network:
+  redis_network:
+  mongo_network:
+
+volumes:
+  redis-data:
+  mongo-data:
+    driver: local
