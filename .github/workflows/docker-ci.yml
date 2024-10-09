@@ -55,5 +55,3 @@ jobs:
       run: |
         docker build . -t chayanb7j7j/contact-mgr:latest
         docker push chayanb7j7j/contact-mgr:latest
-
-        EOF
