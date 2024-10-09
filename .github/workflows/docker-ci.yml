@@ -53,7 +53,7 @@ jobs:
     # Build and push Docker image to Docker Hub
     - name: Build and push Docker image
       run: |
-        docker build . -t chayanb7j7j/my-nodejs-app:latest
+        docker build . -t chayanb7j7j/contact-manager:latest
         docker push chayanb7j7j/my-nodejs-app:latest
 
         EOF
