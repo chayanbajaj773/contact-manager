@@ -32,7 +32,7 @@ jobs:
 
     # Build Docker containers using Docker Compose
     - name: Build containers
-      run: docker-compose build
+      run: docker compose build
 
     # Run tests inside the containers
     - name: Run tests
